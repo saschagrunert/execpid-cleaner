@@ -20,7 +20,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: execpid-cleaner
-        image: quay.io/crio/execpid-cleaner:0.1.0
+        image: quay.io/crio/execpid-cleaner:latest
         resources:
           limits:
             memory: 12Mi
