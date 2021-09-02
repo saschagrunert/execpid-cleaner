@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:34
-RUN dnf install -y findutils
+FROM alpine
+RUN apk add --no-cache bash findutils
 COPY run.sh /
 ENTRYPOINT ["/run.sh"]
