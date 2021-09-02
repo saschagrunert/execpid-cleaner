@@ -1,4 +1,4 @@
-.PHONY:	build push all all-build all-push-images all-push push-manifest
+.PHONY: build push all all-build all-push-images all-push push-manifest
 
 REGISTRY ?= quay.io/crio
 IMAGE = $(REGISTRY)/execpid-cleaner
@@ -13,8 +13,6 @@ QEMUVERSION=5.2.0-2
 
 # This option is for running docker manifest command
 export DOCKER_CLI_EXPERIMENTAL := enabled
-
-SUDO=$(if $(filter 0,$(shell id -u)),,sudo)
 
 build:
 	# Fix possible issues with the local umask
