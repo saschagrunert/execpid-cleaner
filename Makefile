@@ -4,10 +4,10 @@ REGISTRY ?= quay.io/crio
 IMAGE = $(REGISTRY)/execpid-cleaner
 
 TAG ?= $(shell git describe --tags --always --dirty)
-IMAGE_VERSION ?= v0.2.0
+IMAGE_VERSION ?= v0.3.0
 
 ARCH ?= amd64
-ALL_ARCH = amd64 arm arm64 ppc64le s390x
+ALL_ARCH = amd64 arm64 ppc64le s390x
 
 QEMUVERSION=5.2.0-2
 
