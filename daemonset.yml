@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: execpid-cleaner
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: execpid-cleaner
+  template:
+    metadata:
+      labels:
+        name: execpid-cleaner
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: execpid-cleaner
+        image: quay.io/crio/execpid-cleaner:0.1.0
+        resources:
+          limits:
+            memory: 12Mi
+          requests:
+            memory: 12Mi
+        volumeMounts:
+        - name: exec-pid-dir
+          mountPath: /run/crio/exec-pid-dir
+      volumes:
+      - name: exec-pid-dir
+        hostPath:
+          path: /run/crio/exec-pid-dir
