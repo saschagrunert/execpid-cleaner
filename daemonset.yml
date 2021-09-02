@@ -21,11 +21,13 @@ spec:
       containers:
       - name: execpid-cleaner
         image: quay.io/crio/execpid-cleaner:latest
+        securityContext:
+          privileged: true
         resources:
           limits:
-            memory: 12Mi
+            memory: 32Mi
           requests:
-            memory: 12Mi
+            memory: 32Mi
         volumeMounts:
         - name: exec-pid-dir
           mountPath: /run/crio/exec-pid-dir
