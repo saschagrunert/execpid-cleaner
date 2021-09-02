@@ -20,7 +20,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: execpid-cleaner
-        image: quay.io/crio/execpid-cleaner:latest
+        image: quay.io/crio/execpid-cleaner:v0.1.0
         securityContext:
           privileged: true
         resources:
