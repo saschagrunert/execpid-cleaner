@@ -25,9 +25,9 @@ spec:
           privileged: true
         resources:
           limits:
-            memory: 32Mi
+            memory: 64Mi
           requests:
-            memory: 32Mi
+            memory: 64Mi
         volumeMounts:
         - name: exec-pid-dir
           mountPath: /run/crio/exec-pid-dir
